@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ArtistsComponent } from './components/home/components/artists/artists.component';
 import { AlbumsComponent } from './components/home/components/albums/albums.component';
 import { SongsComponent } from './components/home/components/songs/songs.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SongsComponent } from './components/home/components/songs/songs.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
