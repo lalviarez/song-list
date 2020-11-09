@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
    *
    * @memberof HomeComponent
    */
-  showArtistsComponent = true;
+  showArtistsComponent = false;
 
   /**
    * If true show Albums component
@@ -33,6 +33,13 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   showSongName = false;
+
+  /**
+   * If true show button to lists artists
+   *
+   * @memberof HomeComponent
+   */
+  showButtonFavoriteSongs = true;
 
   /**
    * Name of selected artist
@@ -58,6 +65,16 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  /**
+   * Show all Artists 
+   *
+   * @memberof HomeComponent
+   */
+  myFavoriteSongs() {
+    this.showButtonFavoriteSongs = false;
+    this.showArtistsComponent = true;
+  }
 
   /**
    * Get artist name from Artists component
