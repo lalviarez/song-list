@@ -7,13 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { ArtistsComponent } from './components/home/components/artists/artists.component';
+import { AlbumsComponent } from './components/home/components/albums/albums.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    AlbumsComponent
   ],
   imports: [
     BrowserModule,
