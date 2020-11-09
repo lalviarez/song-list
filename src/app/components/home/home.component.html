@@ -42,9 +42,10 @@
 </div>
 
 <div class="row">
-    <div class="offset-sm-4 col-sm-4 offset-md-3 col-md-6">
+    <div class="offset-sm-4 col-sm-4 offset-md-3 col-md-6 text-center">
         <app-artists *ngIf="showArtistsComponent" (artistName)="getArtistName($event)"></app-artists>
         <app-albums *ngIf="showAlbumsComponent" [artistName]='artistName' (albumName)="getAlbumName($event)" ></app-albums>
-        <app-songs *ngIf="showSongsComponent" [albumName]='albumName'></app-songs>
+        <app-songs *ngIf="showSongsComponent" [albumName]='albumName' (songName)="getSongName($event)"></app-songs>
+        <h4 *ngIf="showSongName">Escuchando {{ songName }}</h4>
     </div>
   </div>

@@ -28,6 +28,13 @@ export class HomeComponent implements OnInit {
   showSongsComponent = false;
 
   /**
+   * If true show song message
+   *
+   * @memberof HomeComponent
+   */
+  showSongName = false;
+
+  /**
    * Name of selected artist
    *
    * @memberof HomeComponent
@@ -40,6 +47,13 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   albumName = '';
+
+  /**
+   * Name of selected song
+   *
+   * @memberof HomeComponent
+   */
+  songName = '';
 
   constructor() {}
 
@@ -67,5 +81,18 @@ export class HomeComponent implements OnInit {
     this.albumName = albumName;
     this.showAlbumsComponent = false;
     this.showSongsComponent = true;
+  }
+
+
+  /**
+   * Get song name from Songs component
+   *
+   * @param {string} songNAme
+   * @memberof HomeComponent
+   */
+  getSongName(songName: string) {
+    this.songName = songName;
+    this.showSongsComponent = false;
+    this.showSongName = true;
   }
 }

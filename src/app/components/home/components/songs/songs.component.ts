@@ -1,11 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-songs',
   templateUrl: './songs.component.html',
-  styleUrls: ['./songs.component.scss']
+  styleUrls: ['./songs.component.scss'],
 })
 export class SongsComponent implements OnInit {
+  /**
+   * Selected song name from list
+   *
+   * @memberof SongsComponent
+   */
+  @Output() songName = new EventEmitter<string>(false);
 
   /**
    * Name of selected album
@@ -14,9 +20,17 @@ export class SongsComponent implements OnInit {
    */
   @Input() albumName = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  /**
+   * Get selected song name from list
+   *
+   * @param {string} songName
+   * @memberof SongsComponent
+   */
+  selectedSongName(songName: string) {
+    this.songName.emit(songName);
   }
-
 }
