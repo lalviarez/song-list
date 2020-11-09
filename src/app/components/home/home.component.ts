@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -62,12 +63,21 @@ export class HomeComponent implements OnInit {
    */
   songName = '';
 
-  constructor() {}
+  /**
+   * User Name from Login
+   *
+   * @memberof HomeComponent
+   */
+  userName = '';
 
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.userName = this.route.snapshot.paramMap.get('username');
+  }
 
   /**
-   * Show all Artists 
+   * Show all Artists
    *
    * @memberof HomeComponent
    */
@@ -99,7 +109,6 @@ export class HomeComponent implements OnInit {
     this.showAlbumsComponent = false;
     this.showSongsComponent = true;
   }
-
 
   /**
    * Get song name from Songs component
