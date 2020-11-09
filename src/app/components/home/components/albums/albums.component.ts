@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-albums',
@@ -7,11 +7,33 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AlbumsComponent implements OnInit {
 
-  @Input() artistsName = '';
+  /**
+   * Selected album name from lists
+   *
+   * @memberof AlbumsComponent
+   */
+  @Output() albumName = new EventEmitter<string>(false);
+
+  /**
+   * Name of selected artist
+   *
+   * @memberof AlbumsComponent
+   */
+  @Input() artistName = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  /**
+   * Get selected album name from list
+   *
+   * @param {string} albumName
+   * @memberof AlbumsComponent
+   */
+  selectedAlbumName(albumName: string) {
+    this.albumName.emit(albumName);
   }
 
 }

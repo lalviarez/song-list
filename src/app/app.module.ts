@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { ArtistsComponent } from './components/home/components/artists/artists.component';
 import { AlbumsComponent } from './components/home/components/albums/albums.component';
+import { SongsComponent } from './components/home/components/songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AlbumsComponent } from './components/home/components/albums/albums.comp
     LoginComponent,
     HomeComponent,
     ArtistsComponent,
-    AlbumsComponent
+    AlbumsComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,

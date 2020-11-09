@@ -21,25 +21,51 @@ export class HomeComponent implements OnInit {
   showAlbumsComponent = false;
 
   /**
-   * Name of artists
+   * If true show Songs component
    *
    * @memberof HomeComponent
    */
-  artistsName = '';
+  showSongsComponent = false;
+
+  /**
+   * Name of selected artist
+   *
+   * @memberof HomeComponent
+   */
+  artistName = '';
+
+  /**
+   * Name of selected album
+   *
+   * @memberof HomeComponent
+   */
+  albumName = '';
 
   constructor() {}
 
   ngOnInit(): void {}
 
   /**
-   * Get Artists name from artists component
+   * Get artist name from Artists component
    *
-   * @param {string} artistsName
+   * @param {string} artistName
    * @memberof HomeComponent
    */
-  getArtistsName(artistsName: string) {
-    this.artistsName = artistsName;
+  getArtistName(artistName: string) {
+    this.artistName = artistName;
     this.showArtistsComponent = false;
     this.showAlbumsComponent = true;
+  }
+
+  /**
+   * Get album name from Albums component
+   *
+   * @param {string} albumName
+   * @memberof HomeComponent
+   */
+  getAlbumName(albumName: string) {
+    this.albumName = albumName;
+    this.showAlbumsComponent = false;
+    this.showSongsComponent = true;
   }
 }

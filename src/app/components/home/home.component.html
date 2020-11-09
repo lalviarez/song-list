@@ -43,7 +43,8 @@
 
 <div class="row">
     <div class="offset-sm-4 col-sm-4 offset-md-3 col-md-6">
-        <app-artists *ngIf="showArtistsComponent" (artists)="getArtistsName($event)"></app-artists>
-        <app-albums *ngIf="showAlbumsComponent" [artistsName]='artistsName'></app-albums>
+        <app-artists *ngIf="showArtistsComponent" (artistName)="getArtistName($event)"></app-artists>
+        <app-albums *ngIf="showAlbumsComponent" [artistName]='artistName' (albumName)="getAlbumName($event)" ></app-albums>
+        <app-songs *ngIf="showSongsComponent" [albumName]='albumName'></app-songs>
     </div>
   </div>

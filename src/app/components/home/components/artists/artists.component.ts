@@ -6,13 +6,24 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./artists.component.scss'],
 })
 export class ArtistsComponent implements OnInit {
-  @Output() artists = new EventEmitter<string>(false);
+  /**
+   * Selected artits name from list
+   *
+   * @memberof ArtistsComponent
+   */
+  @Output() artistName = new EventEmitter<string>(false);
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  selectedArtists(artists: string) {
-    this.artists.emit(artists);
+  /**
+   * Get selected artist name from list
+   *
+   * @param {string} artistName
+   * @memberof ArtistsComponent
+   */
+  selectedArtistName(artistName: string) {
+    this.artistName.emit(artistName);
   }
 }
