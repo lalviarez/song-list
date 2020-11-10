@@ -84,8 +84,7 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   myFavoriteSongs() {
-    this.showButtonFavoriteSongs = false;
-    this.showArtistsComponent = true;
+    this.setStep(1);
   }
 
   /**
@@ -96,8 +95,7 @@ export class HomeComponent implements OnInit {
    */
   getArtistName(artistName: string) {
     this.artistName = artistName;
-    this.showArtistsComponent = false;
-    this.showAlbumsComponent = true;
+    this.setStep(2);
   }
 
   /**
@@ -108,8 +106,7 @@ export class HomeComponent implements OnInit {
    */
   getAlbumName(albumName: string) {
     this.albumName = albumName;
-    this.showAlbumsComponent = false;
-    this.showSongsComponent = true;
+    this.setStep(3);
   }
 
   /**
@@ -120,8 +117,7 @@ export class HomeComponent implements OnInit {
    */
   getSongName(songName: string) {
     this.songName = songName;
-    this.showSongsComponent = false;
-    this.showSongName = true;
+    this.setStep(4);
   }
 
   /**
@@ -131,36 +127,7 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   private buildData() {
-    const buildData = [] as any;
-
-    DATA.songs.forEach((d) => {
-      const artist = buildData.find((x) => x.name === d.artist);
-      if (artist) {
-        const album = artist.albums.find((x) => x.name === d.title);
-        if (album) {
-          album.songs.push(d.year);
-        } else {
-          artist.albums.push({
-            name: d.title,
-            year: d.year,
-            songs: [d.year],
-          });
-        }
-      } else {
-        buildData.push({
-          name: d.artist,
-          albums: [
-            {
-              name: d.title,
-              year: d.year,
-              songs: [d.year],
-            },
-          ],
-        });
-      }
-    });
-
-    return buildData;
+    return DATA.data;
   }
 
   /**
@@ -183,7 +150,7 @@ export class HomeComponent implements OnInit {
    */
   getAlbumsFromData(artistName: string) {
     const data = this.buildData();
-    const artist = data.find((x) => x.name === artistName);
+    const artist = data.find((x) => x.artist === artistName);
 
     return artist.albums;
   }
@@ -198,9 +165,56 @@ export class HomeComponent implements OnInit {
   getSongsFromData(artistName: string, albumName: string) {
     const data = this.buildData();
     const album = data
-      .find((x) => x.name === artistName)
+      .find((x) => x.artist === artistName)
       ?.albums?.find((x) => x.name === albumName);
 
     return album.songs;
+  }
+
+
+  /**
+   * Active and inactive steps
+   *
+   * @param {number} step
+   * @memberof HomeComponent
+   */
+  setStep(step: number) {
+    switch (step) {
+      case 0:
+        this.showButtonFavoriteSongs = true;
+        this.showArtistsComponent = false;
+        this.showAlbumsComponent = false;
+        this.showSongsComponent = false;
+        this.showSongName = false;
+        break;
+      case 1:
+        this.showButtonFavoriteSongs = false;
+        this.showArtistsComponent = true;
+        this.showAlbumsComponent = false;
+        this.showSongsComponent = false;
+        this.showSongName = false;
+        break;
+      case 2:
+        this.showButtonFavoriteSongs = false;
+        this.showArtistsComponent = false;
+        this.showAlbumsComponent = true;
+        this.showSongsComponent = false;
+        this.showSongName = false;
+        break;
+      case 3:
+        this.showButtonFavoriteSongs = false;
+        this.showArtistsComponent = false;
+        this.showAlbumsComponent = false;
+        this.showSongsComponent = true;
+        this.showSongName = false;
+        break;
+      case 4:
+        this.showButtonFavoriteSongs = false;
+        this.showArtistsComponent = false;
+        this.showAlbumsComponent = false;
+        this.showSongsComponent = false;
+        this.showSongName = true;
+        break;
+    }
   }
 }

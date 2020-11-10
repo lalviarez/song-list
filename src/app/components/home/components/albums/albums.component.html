@@ -9,11 +9,13 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let item of data; let i = index">
-      <tr (click)="selectedAlbumName(item.name)" style="cursor: pointer">
+      <tr (click)="selectedAlbumName(item?.name)" style="cursor: pointer">
         <th scope="row">{{ i }}</th>
-        <td>{{ item.name }}</td>
+        <td>{{ item?.name }}</td>
         <td>{{ item?.year }}</td>
       </tr>
     </ng-container>
+    <ng-container *ngIf="!data">No existen albumes</ng-container>
   </tbody>
 </table>
+<button class="btn btn-primary" (click)="goStep.emit(1)">Volver</button>

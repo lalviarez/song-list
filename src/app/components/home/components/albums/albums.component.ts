@@ -29,6 +29,13 @@ export class AlbumsComponent implements OnInit {
    */
   @Input() data: any;
 
+  /**
+   * Set for go to step
+   *
+   * @memberof AlbumsComponent
+   */
+  @Output() goStep = new EventEmitter<number>(false);
+
   constructor() { }
 
   ngOnInit(): void {

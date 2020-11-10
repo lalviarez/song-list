@@ -28,6 +28,13 @@ export class SongsComponent implements OnInit {
    */
   @Input() data: any;
 
+  /**
+   * Set for go to step
+   *
+   * @memberof SongsComponent
+   */
+  @Output() goStep = new EventEmitter<number>(false);
+
   constructor() {}
 
   ngOnInit(): void {}
