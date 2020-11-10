@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import DATA from './data.json';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -120,5 +122,53 @@ export class HomeComponent implements OnInit {
     this.songName = songName;
     this.showSongsComponent = false;
     this.showSongName = true;
+  }
+
+  /**
+   * Build data from json
+   *
+   * @private
+   * @memberof HomeComponent
+   */
+  private buildData() {
+    const buildData = [] as any;
+
+    DATA.songs.forEach((d) => {
+      const artist = buildData.find((x) => x.name === d.artist);
+      if (artist) {
+        const album = artist.albums.find((x) => x.name === d.title);
+        if (album) {
+          album.songs.push(d.year);
+        } else {
+          artist.albums.push({
+            name: d.title,
+            songs: [d.year],
+          });
+        }
+      } else {
+        buildData.push({
+          name: d.artist,
+          albums: [
+            {
+              name: d.title,
+              songs: [d.year],
+            },
+          ],
+        });
+      }
+    });
+
+    return buildData;
+  }
+
+  /**
+   * get Artist and albums count
+   *
+   * @returns
+   * @memberof HomeComponent
+   */
+  getArtistsFromData() {
+    const data = this.buildData();
+    return data;
   }
 }

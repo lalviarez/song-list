@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-artists',
@@ -13,9 +13,12 @@ export class ArtistsComponent implements OnInit {
    */
   @Output() artistName = new EventEmitter<string>(false);
 
+  @Input() data: any;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   /**
    * Get selected artist name from list
