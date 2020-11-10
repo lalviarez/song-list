@@ -20,6 +20,14 @@ export class SongsComponent implements OnInit {
    */
   @Input() albumName = '';
 
+  /**
+   * Data for songs of album
+   *
+   * @type {*}
+   * @memberof SongsComponent
+   */
+  @Input() data: any;
+
   constructor() {}
 
   ngOnInit(): void {}

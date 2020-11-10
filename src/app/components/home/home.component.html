@@ -51,6 +51,7 @@
       *ngIf="showSongsComponent"
       [albumName]="albumName"
       (songName)="getSongName($event)"
+      [data]="getSongsFromData(artistName, albumName)"
     ></app-songs>
     <h4 *ngIf="showSongName">Escuchando {{ songName }}</h4>
   </div>

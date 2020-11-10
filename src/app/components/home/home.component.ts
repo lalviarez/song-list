@@ -181,10 +181,26 @@ export class HomeComponent implements OnInit {
    * @returns
    * @memberof HomeComponent
    */
-  getAlbumsFromData(artitsName: string) {
+  getAlbumsFromData(artistName: string) {
     const data = this.buildData();
-    const artist = data.find((x) => x.name === this.artistName);
+    const artist = data.find((x) => x.name === artistName);
 
     return artist.albums;
+  }
+
+  /**
+   * get Artist album songs
+   *
+   * @param {string} artitsName
+   * @returns
+   * @memberof HomeComponent
+   */
+  getSongsFromData(artistName: string, albumName: string) {
+    const data = this.buildData();
+    const album = data
+      .find((x) => x.name === artistName)
+      ?.albums?.find((x) => x.name === albumName);
+
+    return album.songs;
   }
 }
