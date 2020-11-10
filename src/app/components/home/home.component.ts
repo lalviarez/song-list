@@ -142,6 +142,7 @@ export class HomeComponent implements OnInit {
         } else {
           artist.albums.push({
             name: d.title,
+            year: d.year,
             songs: [d.year],
           });
         }
@@ -151,6 +152,7 @@ export class HomeComponent implements OnInit {
           albums: [
             {
               name: d.title,
+              year: d.year,
               songs: [d.year],
             },
           ],
@@ -170,5 +172,19 @@ export class HomeComponent implements OnInit {
   getArtistsFromData() {
     const data = this.buildData();
     return data;
+  }
+
+  /**
+   * get Artist albums
+   *
+   * @param {string} artitsName
+   * @returns
+   * @memberof HomeComponent
+   */
+  getAlbumsFromData(artitsName: string) {
+    const data = this.buildData();
+    const artist = data.find((x) => x.name === this.artistName);
+
+    return artist.albums;
   }
 }

@@ -13,6 +13,12 @@ export class ArtistsComponent implements OnInit {
    */
   @Output() artistName = new EventEmitter<string>(false);
 
+  /**
+   * Data for artist
+   *
+   * @type {*}
+   * @memberof ArtistsComponent
+   */
   @Input() data: any;
 
   constructor() {}

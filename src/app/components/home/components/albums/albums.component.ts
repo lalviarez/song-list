@@ -21,6 +21,14 @@ export class AlbumsComponent implements OnInit {
    */
   @Input() artistName = '';
 
+  /**
+   * Data for artist albums
+   *
+   * @type {*}
+   * @memberof AlbumsComponent
+   */
+  @Input() data: any;
+
   constructor() { }
 
   ngOnInit(): void {

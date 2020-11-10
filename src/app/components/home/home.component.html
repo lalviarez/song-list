@@ -45,6 +45,7 @@
       *ngIf="showAlbumsComponent"
       [artistName]="artistName"
       (albumName)="getAlbumName($event)"
+      [data]="getAlbumsFromData(artistName)"
     ></app-albums>
     <app-songs
       *ngIf="showSongsComponent"
