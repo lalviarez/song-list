@@ -40,19 +40,25 @@
       *ngIf="showArtistsComponent"
       (artistName)="getArtistName($event)"
       [data]="getArtistsFromData()"
+      (goStep)="setStep($event)"
     ></app-artists>
     <app-albums
       *ngIf="showAlbumsComponent"
       [artistName]="artistName"
       (albumName)="getAlbumName($event)"
       [data]="getAlbumsFromData(artistName)"
+      (goStep)="setStep($event)"
     ></app-albums>
     <app-songs
       *ngIf="showSongsComponent"
       [albumName]="albumName"
       (songName)="getSongName($event)"
       [data]="getSongsFromData(artistName, albumName)"
+      (goStep)="setStep($event)"
     ></app-songs>
-    <h4 *ngIf="showSongName">Escuchando {{ songName }}</h4>
+    <ng-container *ngIf="showSongName">
+      <h4>Escuchando... {{ songName }}</h4>
+      <button class="mt-3 btn btn-primary" (click)="setStep(0)">Ir al inicio</button>
+    </ng-container>
   </div>
 </div>

@@ -21,6 +21,13 @@ export class ArtistsComponent implements OnInit {
    */
   @Input() data: any;
 
+  /**
+   * Set for go to step
+   *
+   * @memberof ArtistsComponent
+   */
+  @Output() goStep = new EventEmitter<number>(false);
+
   constructor() {}
 
   ngOnInit(): void {

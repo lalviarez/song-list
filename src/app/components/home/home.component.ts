@@ -106,7 +106,7 @@ export class HomeComponent implements OnInit {
    */
   getAlbumName(albumName: string) {
     this.albumName = albumName;
-    this.setStep(3)
+    this.setStep(3);
   }
 
   /**
@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
    */
   getSongName(songName: string) {
     this.songName = songName;
-    this.setStep(4)
+    this.setStep(4);
   }
 
   /**
