@@ -10,6 +10,10 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 `git clone https://github.com/lalviarez/song-list.git`
 
+Ingrese al directorio donde clonó el proyecto y cambie la rama de desarrollo (tiene la versión más actualizada)
+
+`git checkout develop`
+
 ### Ejecute el servidor de desarrollo
 
 Desde el directorio donde clonó el proyecto ejecute `ng serve`. Luego, vaya al navegador e ingrese `http://localhost:4200/` para ver la aplicación.
