@@ -1,0 +1,17 @@
+<h4>{{ albumName }}</h4>
+<table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Canción</th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of data; let i = index">
+            <tr (click)="selectedSongName(item)" style="cursor: pointer">
+              <th scope="row">{{ i }}</th>
+              <td>{{ item }}</td>
+            </tr>
+          </ng-container>
+    </tbody>
+  </table>

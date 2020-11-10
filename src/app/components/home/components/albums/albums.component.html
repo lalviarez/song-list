@@ -1,0 +1,19 @@
+<h4>{{ artistName }}</h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Album</th>
+      <th scope="col">Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let item of data; let i = index">
+      <tr (click)="selectedAlbumName(item.name)" style="cursor: pointer">
+        <th scope="row">{{ i }}</th>
+        <td>{{ item.name }}</td>
+        <td>{{ item?.year }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
