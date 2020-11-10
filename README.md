@@ -1,27 +1,15 @@
-# SongList
+# Lista de canciones
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+Ejemplo de aplicación Angular que maneja un archivo .json con data de artistas, albumes y canciones. Se puede visualizar información de artistas, cantidad de albumes por artista, nombre de albumes y sus canciones.
 
-## Development server
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Para ejecutar el proyecto en modo development
 
-## Code scaffolding
+### Clone el proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`git clone https://github.com/lalviarez/song-list.git`
 
-## Build
+### Ejecute el servidor de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Desde el directorio donde clonó el proyecto ejecute `ng serve`. Luego, vaya al navegador e ingrese `http://localhost:4200/` para ver la aplicación.
